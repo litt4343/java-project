@@ -1,8 +1,10 @@
-pipeline {
-	agent any
-	stage(‘Unit Tests’) {
-		ant -f test.xml -v
-    unit ‘reports/*.xml’
-	}
-	
+node ('linux') {
+
+    stage ("Build") {
+     sh "ant -f build.xml -v"
+    }
+    stage ("Unit Tests") {
+     sh "ant -f test.xml -v
+    }
 }
+	  
