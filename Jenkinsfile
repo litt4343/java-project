@@ -4,7 +4,7 @@ node ('linux') {
      sh "ant -f build.xml -v"
     }
     stage ("Unit Tests") {
-     sh "ant -f test.xml -v
+     sh "ant -f test.xml -v"
     }
 }
 	  
