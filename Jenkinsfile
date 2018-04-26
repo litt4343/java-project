@@ -10,7 +10,7 @@ node('linux') {
 		sh 'ant -f build.xml -v'   
 	}  
 	stage('Deploy') {
-		sh 'sudo aws s3 cp s3://victorialittlefield-assignment-4/rectangle-${BUILD_NUMBER}.jar rectangle-${BUILD_NUMBER}.jar'
+		sh 'aws s3 cp s3://victorialittlefield-assignment-4/rectangle-${BUILD_NUMBER}.jar /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar'
 	}
 	stage('Report') {
 	      withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-aws-assign10', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {sh 'aws cloudformation describe-stack-resources --stack-name jenkins --region us-east-1' }	
