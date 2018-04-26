@@ -1,9 +1,10 @@
 node ('linux') {
     stage ("Unit Tests") {
-     sh "ant -f test.xml -v"
+     sh 'ant'
+     sh 'ant -f test.xml -v'
     }
     stage ("Build") {
-     sh "ant -f build.xml -v"
+     sh 'ant -f build.xml -v'
     }
     
 }
